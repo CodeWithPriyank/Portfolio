@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'poly-sans';
+  src: url(/PolySans-Bulky.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "poly-sans", sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  overflow-x: hidden;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  overflow: hidden;
+}
+
+.background-dots {
+  position: absolute;
+  width: 312vmin;
+  height: 170vmin;
+  background:
+    radial-gradient(circle, rgb(255 215 0) 1px, transparent 1px),
+    radial-gradient(circle, rgba(78, 205, 196, 0.15) 1px, transparent 1px),
+    radial-gradient(circle, rgba(248, 165, 194, 0.15) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 99, 71, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.5;
+  animation: breathe 8s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.05) rotate(1deg);
+    opacity: 0.7;
+  }
+}
+
+.hero-content {
+  text-align: center;
+  padding: 0 20px;
+  max-width: 1200px;
+}
+
+.hero-heading {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+
+.white {
+  color: white;
+}
+
+.cream {
+  color: #f5f5dc;
+}
+
+.yellow {
+  color: #ffd700;
+}
+
+.teal {
+  color: #4ecdc4;
+}
+
+.pink {
+  color: #f8a5c2;
+}
+
+.orange {
+  color: #ff6347;
+}
+
+
+
+.split-parent {
+  display: inline-block;
+  overflow: hidden;
+}
+
+
+.hero-heading {
+  overflow: visible !important;
+}
+
+
+.split-char,
+.split-word,
+.split-line {
+  display: inline-block;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 15px;
+  }
+
+
+  .split-char,
+  .split-word,
+  .split-line {
+    animation-duration: 0.6s !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .banner-container {
+    bottom: 10%;
+  }
+}
