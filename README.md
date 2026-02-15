@@ -2,7 +2,6 @@
 
 Hey there! Welcome to the codebase of my personal developer portfolio — built to showcase my projects, skills, and creative work across web development and motion design.
 
-🔗 **Live Site**: [priyank-portfolio.vercel.app](https://priyank-portfolio.vercel.app)
 
 ---
 
@@ -28,15 +27,9 @@ Hey there! Welcome to the codebase of my personal developer portfolio — built 
 
 ---
 
-## 🖼 Preview
-
-![screenshot](./preview.png) <!-- Optional: Add a screenshot of the site if you want -->
-
----
-
 ## 🛠 How to Run Locally
 
 1. **Clone the repo**
    ```bash
    git clone https://github.com/Priyank/Priyank-portfolio.git
-   cd Priyank-portfolio
+
