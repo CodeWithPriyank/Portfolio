@@ -41,14 +41,6 @@ const ProjectsSection = () => {
       image: "/aihero.png"
     },
     {
-      title: "You came for Designs?",
-      description: "Click here to explore my designs🎨",
-      tags: ["Figma", "AdobeXD"],
-      accentColor: "#fff",
-      link: "/figma-designs",
-      image: "/Cover.png"
-    },
-    {
       title: "More Projects",
       description: "Click here to explore my work✨",
       tags: ["My GitHub Profile"],

@@ -34,21 +34,13 @@ const FooterContact = () => {
               <a href="mailto:priyankgoswmi01@gmail.com?cc=yourmail@domain.com&subject=Let's%20Work%20Together&body=Hey%2C%20Priyank!">priyankgoswmi01@gmail.com</a>
             </div>
           </div>
-          
-          <div className="contact-method">
-            <FaPhoneAlt className="contact-icon" />
-            <div>
-              <h3>Leave a message</h3>
-              <a href="tel:+918917375064">+91 8917375064</a>
-            </div>
-          </div>
         </div>
 
 
         <div className="quick-links">
           <h3>Navigate</h3>
           <ul>
-            {['home', 'about', 'projects', 'education', 'contact'].map((item) => (
+            {['home', 'about', 'projects', 'contact'].map((item) => (
               <li key={item}>
                 <button 
                   onClick={() => scrollToSection(item)}

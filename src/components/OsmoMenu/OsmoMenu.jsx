@@ -65,7 +65,6 @@ const OsmoMenu = () => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Projects' },
-    { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Contact' }
   ];
 
