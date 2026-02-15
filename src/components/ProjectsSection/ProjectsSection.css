@@ -47,12 +47,6 @@
   border: 1px solid transparent;
 }
 
-.project-link-wrapper {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
 .project-tile:focus-visible {
   box-shadow: 0 0 0 2px var(--accent-color);
 }

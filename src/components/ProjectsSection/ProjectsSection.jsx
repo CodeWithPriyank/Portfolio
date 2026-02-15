@@ -1,63 +1,16 @@
-import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import projects from "../../data/projects";
+import ProjectModal from "../ProjectModal/ProjectModal";
 import "./ProjectsSection.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = () => {
-  const projects = [
-    {
-      title: "Wondrr",
-      description: "A marketplace for group departures",
-      tags: ["NextTS", "MongoDB", "Redis", "AWS", "Express"],
-      accentColor: "#049EF4",
-      link: "https://wondrr.in/",
-      image: "/Wondrr_jpg.jpg"
-    },
-    {
-      title: "Learnio",
-      description: "A page where students can study with notes, quizzes and more",
-      tags: ["HTML", "CSS", "React"],
-      accentColor: "#02c21b",
-      link: "https://learnio-zeta.vercel.app/",
-      image: "/learnio.png"
-    },
-    {
-      title: "Portfolio Template",
-      description: "Your custom devfolio!",
-      tags: ["HTML", "CSS", "React"],
-      accentColor: "#A259FF",
-      link: "https://portfolio-template-beta-olive.vercel.app/",
-      image: "/ptemplate.png"
-    },
-    {
-      title: "Simple Landing Page",
-      description: "Frontend landing page of an AI Image generator",
-      tags: ["HTML", "CSS", "React"],
-      accentColor: "#FF6347",
-      link: "https://progenix-ai.vercel.app/",
-      image: "/aihero.png"
-    },
-    {
-      title: "More Projects",
-      description: "Click here to explore my work✨",
-      tags: ["My GitHub Profile"],
-      accentColor: "#ffd700",
-      link: "https://github.com/CodeWithPriyank",
-      image: "/more.svg"
-    },
-    {
-      title: "Coming up",
-      description: "More cool projects are on the way",
-      tags: ["React", "Node.js", " Figma"],
-      accentColor: "rgb(149, 174, 255)",
-      link: "#",
-      image: "/stay_tuned.jpg"
-    }
-  ];
-
+  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
   const projectsGridRef = useRef(null);
   const tilesRef = useRef([]);
@@ -103,21 +56,34 @@ const ProjectsSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleProjectClick = (link, isExternal, index) => {
+  const handleProjectClick = (project, index) => {
     const tile = tilesRef.current[index];
-    if (tile) {
+    if (!tile) return;
+
+    if (project.skipModal) {
       gsap.to(tile, {
         scale: 0.98,
         duration: 0.15,
         yoyo: true,
         repeat: 1,
         onComplete: () => {
-          if (isExternal) {
-            window.open(link, "_blank", "noopener,noreferrer");
+          if (project.link.startsWith("http")) {
+            window.open(project.link, "_blank", "noopener,noreferrer");
           }
         }
       });
+      return;
     }
+
+    gsap.to(tile, {
+      scale: 0.98,
+      duration: 0.15,
+      yoyo: true,
+      repeat: 1,
+      onComplete: () => {
+        setSelectedProject(project);
+      }
+    });
   };
 
   const handleProjectHover = (index, isHovering) => {
@@ -192,6 +158,15 @@ const ProjectsSection = () => {
     }
   };
 
+  const handleModalClose = () => {
+    setSelectedProject(null);
+  };
+
+  const handleViewDetails = (project) => {
+    setSelectedProject(null);
+    navigate(`/project/${project.slug}`);
+  };
+
   return (
     <section id="projects" className="projects-section" ref={sectionRef}>
       <div className="section-header">
@@ -207,69 +182,43 @@ const ProjectsSection = () => {
       </div>
 
       <div className="projects-grid" ref={projectsGridRef}>
-        {projects.map((project, index) => {
-          const isExternal = project.link.startsWith("http");
-
-          return isExternal ? (
-            <div
-              key={index}
-              className="project-tile"
-              style={{ "--accent-color": project.accentColor }}
-              onClick={() => handleProjectClick(project.link, true, index)}
-              onMouseEnter={() => handleProjectHover(index, true)}
-              onMouseLeave={() => handleProjectHover(index, false)}
-              ref={el => tilesRef.current[index] = el}
-              role="button"
-              tabIndex={0}
-            >
-              <div className="project-image-container">
-                <img src={project.image} alt={project.title} className="project-image" />
-              </div>
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="project-overlay"></div>
-              <div className="project-border"></div>
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="project-tile"
+            style={{ "--accent-color": project.accentColor }}
+            onClick={() => handleProjectClick(project, index)}
+            onMouseEnter={() => handleProjectHover(index, true)}
+            onMouseLeave={() => handleProjectHover(index, false)}
+            ref={el => tilesRef.current[index] = el}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="project-image-container">
+              <img src={project.image} alt={project.title} className="project-image" />
             </div>
-          ) : (
-            <Link
-              to={project.link}
-              key={index}
-              className="project-link-wrapper"
-              style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
-            >
-              <div
-                className="project-tile"
-                style={{ "--accent-color": project.accentColor }}
-                onMouseEnter={() => handleProjectHover(index, true)}
-                onMouseLeave={() => handleProjectHover(index, false)}
-                ref={el => tilesRef.current[index] = el}
-              >
-                <div className="project-image-container">
-                  <img src={project.image} alt={project.title} className="project-image" />
-                </div>
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tags">
-                    {project.tags.map((tag, i) => (
-                      <span key={i} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="project-overlay"></div>
-                <div className="project-border"></div>
+            <div className="project-content">
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <div className="project-tags">
+                {project.tags.map((tag, i) => (
+                  <span key={i} className="tag">{tag}</span>
+                ))}
               </div>
-            </Link>
-          );
-        })}
+            </div>
+            <div className="project-overlay"></div>
+            <div className="project-border"></div>
+          </div>
+        ))}
       </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={handleModalClose}
+          onViewDetails={handleViewDetails}
+        />
+      )}
     </section>
   );
 };
