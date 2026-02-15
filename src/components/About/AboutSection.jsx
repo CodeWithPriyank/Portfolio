@@ -25,17 +25,22 @@ const AboutSection = () => {
   }, []);
 
   const techStack = [
+    { name: "Python", color: "#3776AB" },
+    { name: "Django", color: "#47A248" },
+    { name: "Flask", color: "#68A063" },
+    { name: "FastAPI", color: "#3776AB" },
+    { name: "Artificial Intelligence", color: "#ef09cc" },
+    { name: "Machine Learning", color: "#ca0a44" },
+    { name: "Computer Vision", color: "#ff7b00" },
+    { name: "AWS", color: "#ff7b00" },
+    { name: "Docker", color: "#ffffff" },
+    { name: "Redis", color: "#ff0000" },
     { name: "Javascript", color: "#F7DF1E" },
     { name: "Node.js", color: "#68A063" },
     { name: "React.js", color: "#61DAFB" },
-    { name: "MySQL", color: "#00758F" },
-    { name: "Python", color: "#3776AB" },
-    { name: "MongoDB", color: "#47A248" },
-    { name: "TypeScript", color: "#3178C6" },
-    { name: "Next", color: "#FFFFFF" },
-    { name: "Express", color: "#259DFF" },
-    { name: "Adobe XD", color: "#FF61F6" },
-    { name: "Figma", color: "#F24E1E" },
+    { name: "MySQL", color: "#f40101" },
+    { name: "MongoDB", color: "#02df06" },
+    
   ];
 
   return (
@@ -79,9 +84,10 @@ const AboutSection = () => {
           <div className="fact-bubble">
             <span className="fact-icon">💡</span>
             <p>
-              Fun fact: I once got so deep into setting up <span className="yellow">React routing</span> that I nearly broke my entire <span className="pink">project preview</span> which I was not able to figure
-              <span className="teal"> on browser</span> thankfully, a calm chat with my
-              <span className="orange"> friend</span> helped me trace it back.
+              Fun fact: Python has been used in 
+              <span className="yellow"> visual effects</span> and <span className="pink"> animation pipelines </span> for films like  
+              <span className="teal"> Avatar</span> and 
+              <span className="orange"> Star Wars</span>.
             </p>
           </div>
         </div>
