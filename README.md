@@ -25,12 +25,6 @@ Hey there! Welcome to the codebase of my personal developer portfolio — built 
 
 ---
 
-## 🖼 Preview
-
-![screenshot](./preview.png) <!-- Optional: Add a screenshot of the site if you want -->
-
----
-
 ## 🛠 How to Run Locally
 
 1. **Clone the repo**
