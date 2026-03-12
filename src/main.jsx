@@ -9,7 +9,7 @@ import Layout from './Layout.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Portfolio">
       <Layout />
     </BrowserRouter>
   </StrictMode>,

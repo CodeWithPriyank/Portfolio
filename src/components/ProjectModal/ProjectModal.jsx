@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import gsap from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./ProjectModal.css";
 
 const ProjectModal = ({ project, onClose, onViewDetails }) => {
@@ -10,12 +9,6 @@ const ProjectModal = ({ project, onClose, onViewDetails }) => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-
-    // Pause ScrollSmoother so modal content can scroll
-    const smoother = ScrollSmoother.get();
-    if (smoother) {
-      smoother.paused(true);
-    }
 
     const tl = gsap.timeline();
     tl.fromTo(
@@ -32,11 +25,6 @@ const ProjectModal = ({ project, onClose, onViewDetails }) => {
 
     return () => {
       document.body.style.overflow = "";
-      // Resume ScrollSmoother when modal closes
-      const sm = ScrollSmoother.get();
-      if (sm) {
-        sm.paused(false);
-      }
     };
   }, []);
 
@@ -70,11 +58,27 @@ const ProjectModal = ({ project, onClose, onViewDetails }) => {
     if (e.target === overlayRef.current) handleClose();
   };
 
+  // Stop wheel events from propagating to ScrollSmoother
+  const handleWheel = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const { scrollTop, scrollHeight, clientHeight } = card;
+    const atTop = scrollTop === 0 && e.deltaY < 0;
+    const atBottom = scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
+    if (!atTop && !atBottom) {
+      e.stopPropagation();
+    } else {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   return createPortal(
     <div
       className="modal-overlay"
       ref={overlayRef}
       onClick={handleOverlayClick}
+      onWheel={handleWheel}
     >
       <div
         className="modal-card"
