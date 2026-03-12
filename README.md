@@ -1,6 +1,11 @@
 # 🚀 Priyank's Portfolio
 
 Hey there! Welcome to the codebase of my personal developer portfolio — built to showcase my projects, skills, and creative work across web development and motion design.
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 ---
 
 ## ✨ Features
@@ -22,12 +27,6 @@ Hey there! Welcome to the codebase of my personal developer portfolio — built 
 | CSS        | Styling (custom and responsive) |
 | Vite       | Lightning-fast bundler |
 | Vercel     | Deployment         |
-
----
-
-## 🖼 Preview
-
-![screenshot](./preview.png) <!-- Optional: Add a screenshot of the site if you want -->
 
 ---
 
