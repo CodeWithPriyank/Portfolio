@@ -1,11 +1,6 @@
 # 🚀 Priyank's Portfolio
 
 Hey there! Welcome to the codebase of my personal developer portfolio — built to showcase my projects, skills, and creative work across web development and motion design.
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 ---
 
 ## ✨ Features
