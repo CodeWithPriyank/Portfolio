@@ -6,7 +6,7 @@ const projects = [
     title: "PJContext",
     description: "Capture and restore AI coding context across sessions.",
     details: "Built a full-stack marketplace connecting travelers with group departure experiences. The platform enables hosts to list group trips and travelers to discover, book, and manage their departures — all through a seamless, modern interface.",
-    tags: ["Python", "MongoDB", "Redis", "AWS", "Express"],
+    tags: ["Python", "Redis", "Node.js"],
     highlights: [
       "Real-time booking system with availability tracking",
       "Payment integration for secure transactions",
@@ -66,6 +66,40 @@ const projects = [
   //   link: "",
   //   image: `${base}aihero.png`
   // },
+  {
+    slug: "clipboard-history-extension",
+    title: "Clipboard History for Devs",
+    description: "A browser extension that tracks your copied code snippets with syntax highlighting.",
+    details: "Built a privacy-first Chrome extension that maintains a history of your snippets (configurable) with automatic syntax highlighting and smart language detection. All data stays local — no servers, no tracking. Accessible via Ctrl+Shift+V.",
+    tags: ["JavaScript", "Chrome Extension", "Manifest V3", "Prism.js"],
+    highlights: [
+      "Tracks copied snippets with automatic syntax highlighting via Prism.js",
+      "Smart language detection — auto-tags commands, JSON, TypeScript, Go, Rust, and more",
+      "Persistent storage using Chrome Storage API — survives browser restarts",
+      "100% privacy-first: all data stored locally, no external servers",
+      "Supports Chrome, Edge, Brave, and Firefox with keyboard navigation"
+    ],
+    accentColor: "#A259FF",
+    link: "https://github.com/CodeWithPriyank/Extension/tree/main/clipboard_snippet",
+    image: `${base}Mentormap.png`
+  },
+  {
+    slug: "sip-detection-ml",
+    title: "Sip Detection ML Model",
+    description: "ML model to classify sip-taking behavior from bottle-mounted sensor data.",
+    details: "Built an end-to-end machine learning pipeline to detect and classify sip-taking behavior using time-series data from sensors mounted on a bottle. Handled sensor signal preprocessing, feature engineering, model training, and evaluation entirely from scratch.",
+    tags: ["Python", "Scikit-learn", "Signal Processing", "ESP32 Sensor"],
+    highlights: [
+      "Preprocessed raw time-series sensor signals for noise reduction and normalization",
+      "Engineered features using peak detection, windowing, and statistical aggregations",
+      "Benchmarked SVM, Random Forest, and Decision Tree classifiers",
+      "Selected best-performing model for real-time sip prediction",
+      "End-to-end pipeline from raw data to deployable model"
+    ],
+    accentColor: "#4CAF50",
+    link: "",
+    image: `${base}bottlehand.png`
+  },
   {
     slug: "more-projects",
     title: "More Projects",
