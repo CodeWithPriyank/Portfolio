@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+// import GitHubStats from '../GitHubStats/GitHubStats';
 import {
   SiPython, SiDjango, SiFlask, SiFastapi,
   SiAmazonwebservices, SiDocker, SiRedis,
@@ -98,13 +99,15 @@ const AboutSection = () => {
           <div className="fact-bubble">
             <span className="fact-icon">💡</span>
             <p>
-              Fun fact: Python has been used in 
-              <span className="yellow"> visual effects</span> and <span className="pink"> animation pipelines </span> for films like  
-              <span className="teal"> Avatar</span> and 
+              Fun fact: Python has been used in
+              <span className="yellow"> visual effects</span> and <span className="pink"> animation pipelines </span> for films like
+              <span className="teal"> Avatar</span> and
               <span className="orange"> Star Wars</span>.
             </p>
           </div>
         </div>
+
+        {/* <GitHubStats /> */}
       </div>
     </section>
   );

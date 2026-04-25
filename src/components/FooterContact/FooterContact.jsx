@@ -1,6 +1,7 @@
 import './FooterContact.css';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
+import ContactForm from '../ContactForm/ContactForm';
 
 const FooterContact = () => {
   const scrollToSection = (id) => {
@@ -23,14 +24,16 @@ const FooterContact = () => {
           <h2 className="footer-title">
             <span className="yellow">/</span>get-in-touch
           </h2>
-          
+
           <div className="contact-method">
             <FaEnvelope className="contact-icon" />
             <div>
               <h3>Email</h3>
-              <a href="mailto:priyankgoswmi01@gmail.com?cc=yourmail@domain.com&subject=Let's%20Work%20Together&body=Hey%2C%20Priyank!">priyankgoswmi01@gmail.com</a>
+              <a href="mailto:priyankgoswmi01@gmail.com?subject=Let's%20Work%20Together&body=Hey%2C%20Priyank!">priyankgoswmi01@gmail.com</a>
             </div>
           </div>
+
+          <ContactForm />
         </div>
 
 

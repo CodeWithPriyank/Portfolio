@@ -1,0 +1,126 @@
+.gh-stats-wrapper {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.gh-stats-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.8rem;
+}
+
+.gh-main-icon {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.gh-username {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gh-username:hover {
+  color: #ffd700;
+}
+
+/* Stat cards */
+.gh-stats-grid {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.gh-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gh-stat-icon {
+  font-size: 1rem;
+  color: #ffd700;
+  opacity: 0.8;
+}
+
+.gh-stat-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.gh-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Languages */
+.gh-langs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gh-langs-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gh-lang-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.gh-lang-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Loading skeleton */
+.gh-loading {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.gh-pulse {
+  display: block;
+  width: 80px;
+  height: 60px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  animation: gh-shimmer 1.4s infinite;
+}
+
+.gh-pulse:nth-child(2) { animation-delay: 0.2s; }
+.gh-pulse:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes gh-shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+@media (max-width: 480px) {
+  .gh-stats-grid {
+    gap: 1.5rem;
+  }
+  .gh-stat-value {
+    font-size: 1.6rem;
+  }
+}
