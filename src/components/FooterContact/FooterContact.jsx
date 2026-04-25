@@ -5,15 +5,12 @@ import { SiLeetcode } from 'react-icons/si';
 const FooterContact = () => {
   const scrollToSection = (id) => {
     if (id === 'home') {
-
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     }
   };
@@ -40,7 +37,7 @@ const FooterContact = () => {
         <div className="quick-links">
           <h3>Navigate</h3>
           <ul>
-            {['home', 'about', 'projects', 'contact'].map((item) => (
+            {['home', 'about', 'experience', 'projects', 'contact'].map((item) => (
               <li key={item}>
                 <button 
                   onClick={() => scrollToSection(item)}

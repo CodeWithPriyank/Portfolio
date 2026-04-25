@@ -1,6 +1,6 @@
 .about-section {
   background-color: #1a1a1a;
-  padding: 8rem 2rem;
+  padding: 8rem 2rem 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -59,17 +59,11 @@
   width: 24px;
   height: 24px;
   margin-right: 1rem;
-  position: relative;
   flex-shrink: 0;
-}
-
-.skill-dot {
-  width: 100%;
-  height: 100%;
-  background-color: var(--skill-color);
-  border-radius: 50%;
-  position: absolute;
-  filter: drop-shadow(0 0 5px var(--skill-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 4px var(--skill-color));
 }
 
 .skill-name {

@@ -1,4 +1,13 @@
 import { useRef, useEffect } from 'react';
+import {
+  SiPython, SiDjango, SiFlask, SiFastapi,
+  SiAmazonwebservices, SiDocker, SiRedis,
+  SiJavascript, SiNodedotjs, SiReact,
+  SiMysql, SiMongodb, SiRabbitmq,
+} from 'react-icons/si';
+import {
+  TbBrain, TbEye, TbRobot, TbDatabase, TbMessageDots, TbSearch, TbLeaf,
+} from 'react-icons/tb';
 import './AboutSection.css';
 
 const AboutSection = () => {
@@ -25,22 +34,27 @@ const AboutSection = () => {
   }, []);
 
   const techStack = [
-    { name: "Python", color: "#3776AB" },
-    { name: "Django", color: "#47A248" },
-    { name: "Flask", color: "#68A063" },
-    { name: "FastAPI", color: "#3776AB" },
-    { name: "Artificial Intelligence", color: "#ef09cc" },
-    { name: "Machine Learning", color: "#ca0a44" },
-    { name: "Computer Vision", color: "#ff7b00" },
-    { name: "AWS", color: "#ff7b00" },
-    { name: "Docker", color: "#ffffff" },
-    { name: "Redis", color: "#ff0000" },
-    { name: "Javascript", color: "#F7DF1E" },
-    { name: "Node.js", color: "#68A063" },
-    { name: "React.js", color: "#61DAFB" },
-    { name: "MySQL", color: "#f40101" },
-    { name: "MongoDB", color: "#02df06" },
-    
+    { name: "Python",                icon: SiPython,           color: "#3776AB" },
+    { name: "Django",                icon: SiDjango,           color: "#44B78B" },
+    { name: "Flask",                 icon: SiFlask,            color: "#ffffff" },
+    { name: "FastAPI",               icon: SiFastapi,          color: "#009688" },
+    { name: "Artificial Intelligence", icon: TbBrain,          color: "#ef09cc" },
+    { name: "Machine Learning",      icon: TbBrain,            color: "#ca0a44" },
+    { name: "Computer Vision",       icon: TbEye,              color: "#ff7b00" },
+    { name: "AI Agents",             icon: TbRobot,            color: "#ff4000" },
+    { name: "RAG",                   icon: TbSearch,           color: "#ef09cc" },
+    { name: "LLM",                   icon: TbMessageDots,      color: "#ffffff" },
+    { name: "AWS",                   icon: SiAmazonwebservices, color: "#FF9900" },
+    { name: "Docker",                icon: SiDocker,           color: "#2496ED" },
+    { name: "Redis",                 icon: SiRedis,            color: "#FF4438" },
+    { name: "Javascript",            icon: SiJavascript,       color: "#F7DF1E" },
+    { name: "Node.js",               icon: SiNodedotjs,        color: "#68A063" },
+    { name: "React.js",              icon: SiReact,            color: "#61DAFB" },
+    { name: "MySQL",                 icon: SiMysql,            color: "#4479A1" },
+    { name: "MongoDB",               icon: SiMongodb,          color: "#47A248" },
+    { name: "VectorDB",              icon: TbDatabase,         color: "#0227df" },
+    { name: "RabbitMQ",              icon: SiRabbitmq,         color: "#FF6600" },
+    { name: "Celery",                icon: TbLeaf,             color: "#57df02" },
   ];
 
   return (
@@ -72,7 +86,7 @@ const AboutSection = () => {
                 }}
               >
                 <div className="skill-icon">
-                  <div className="skill-dot"></div>
+                  <tech.icon size={20} color={tech.color} />
                 </div>
                 <span className="skill-name">{tech.name}</span>
               </div>
